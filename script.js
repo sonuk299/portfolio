@@ -1,64 +1,88 @@
-// 1. Scroll Fade-in Animation
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('show');
-        }
+document.addEventListener('DOMContentLoaded', () => {
+    
+    /* --- 1. Scroll Fade-in Animation --- */
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('show');
+            }
+        });
     });
-});
 
-const hiddenElements = document.querySelectorAll('.hidden');
-hiddenElements.forEach((el) => observer.observe(el));
+    const hiddenElements = document.querySelectorAll('.hidden');
+    hiddenElements.forEach((el) => observer.observe(el));
 
-// 2. Mobile Menu Logic
-const menuToggle = document.querySelector('.menu-toggle');
-const navLinks = document.querySelector('nav ul');
 
-if(menuToggle) {
-    menuToggle.addEventListener('click', () => {
-        navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
-        
-        if(navLinks.style.display === 'flex') {
-            navLinks.style.flexDirection = 'column';
-            navLinks.style.position = 'absolute';
-            navLinks.style.top = '70px';
-            navLinks.style.left = '0';
-            navLinks.style.width = '100%';
-            navLinks.style.background = 'rgba(10, 10, 10, 0.95)';
-            navLinks.style.padding = '2rem';
-        }
+    /* --- 2. Mobile Menu Logic --- */
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navMenu = document.querySelector('nav ul');
+    const navLinks = document.querySelectorAll('nav a');
+
+    if (menuToggle) {
+        menuToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            
+            // Toggle Icon
+            const icon = menuToggle.querySelector('i');
+            if(navMenu.classList.contains('active')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            } else {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        });
+    }
+
+    // Close menu when a link is clicked
+    navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            navMenu.classList.remove('active');
+            const icon = menuToggle.querySelector('i');
+            if(icon) {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        });
     });
-}
 
-// 3. 3D Tilt Effect Logic (New Addition)
-const tiltCards = document.querySelectorAll('.tilt-card');
 
-tiltCards.forEach(card => {
-    card.addEventListener('mousemove', (e) => {
-        // Get the dimensions of the card
+    /* --- 3. Optimized 3D Tilt Effect --- */
+    const tiltCards = document.querySelectorAll('.tilt-card');
+
+    tiltCards.forEach(card => {
+        let ticking = false;
+
+        card.addEventListener('mousemove', (e) => {
+            if (!ticking) {
+                window.requestAnimationFrame(() => {
+                    applyTilt(card, e);
+                    ticking = false;
+                });
+                ticking = true;
+            }
+        });
+
+        card.addEventListener('mouseleave', () => {
+            card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale3d(1, 1, 1)';
+            card.style.boxShadow = 'none';
+        });
+    });
+
+    function applyTilt(card, e) {
         const rect = card.getBoundingClientRect();
-        
-        // Calculate mouse position relative to the center of the card
         const x = e.clientX - rect.left;
         const y = e.clientY - rect.top;
         
-        // Calculate rotation (max rotation 15deg)
         const centerX = rect.width / 2;
         const centerY = rect.height / 2;
         
-        const rotateX = ((y - centerY) / centerY) * -15; // Invert axis for natural feel
-        const rotateY = ((x - centerX) / centerX) * 15;
+        // Limit rotation to 15 degrees
+        const rotateX = ((y - centerY) / centerY) * -10; // Inverted for natural feel
+        const rotateY = ((x - centerX) / centerX) * 10;
         
-        // Apply the transform
-        card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.05, 1.05, 1.05)`;
-        
-        // Add a subtle glare/shine effect via box-shadow
-        card.style.boxShadow = `${-rotateY}px ${rotateX}px 20px rgba(0, 242, 96, 0.1)`;
-    });
-
-    // Reset card when mouse leaves
-    card.addEventListener('mouseleave', () => {
-        card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale3d(1, 1, 1)';
-        card.style.boxShadow = 'none';
-    });
+        card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
+        // Subtle glow effect
+        card.style.boxShadow = `${-rotateY}px ${rotateX}px 20px rgba(0, 242, 96, 0.15)`;
+    }
 });

@@ -24,7 +24,7 @@
         <ul>
             <li><a href="#about">About</a></li>
             <li><a href="#skills">Tech Stack</a></li>
-            <li><a href="#certifications">Certifications</a></li>
+            <li><a href="#projects">Projects</a></li> <li><a href="#certifications">Certifications</a></li>
             <li><a href="#experience">Experience</a></li>
             <li><a href="#contact" class="btn-contact">Hire Me</a></li>
         </ul>
@@ -32,7 +32,7 @@
 
     <section id="about" class="hero hidden">
         <div class="profile-container">
-            <img src="Profile.jpeg" alt="Sonu Kumar" class="profile-img">
+            <img src="profile.jpeg" alt="Sonu Kumar" class="profile-img">
         </div>
         <h3>Hello, I am</h3>
         <h1>Sonu Kumar</h1>
@@ -40,7 +40,7 @@
         <p>B.Tech Student at GEC Samastipur | Crafting digital experiences with code. Specialized in building modern, responsive websites and interactive user interfaces.</p>
         
         <div class="btn-group">
-            <a href="#contact" class="btn primary">View My Work</a>
+            <a href="#projects" class="btn primary">View My Work</a>
             <a href="https://www.linkedin.com/in/sonu-kumar-80384329b" target="_blank" class="btn secondary"><i class="fab fa-linkedin"></i> LinkedIn</a>
         </div>
     </section>
@@ -48,82 +48,101 @@
     <section id="skills" class="hidden">
         <h2 class="section-title">Technical Arsenal</h2>
         <div class="cards-container">
-            
-            <div class="card">
+            <div class="card tilt-card">
                 <i class="fas fa-code" style="color: #a8b9cc;"></i>
                 <h3>C Language</h3>
-                <p>Structured programming, memory management, and strong logic building.</p>
+                <p>Structured programming & logic building.</p>
             </div>
-
-            <div class="card">
+            <div class="card tilt-card">
                 <i class="fab fa-html5" style="color: #e34c26;"></i>
                 <h3>HTML5</h3>
-                <p>Semantic markup, web structure, and accessible page design.</p>
+                <p>Semantic markup & accessibility.</p>
             </div>
-
-            <div class="card">
+            <div class="card tilt-card">
                 <i class="fab fa-css3-alt" style="color: #264de4;"></i>
                 <h3>CSS3</h3>
-                <p>Responsive layouts, Flexbox, Grid systems, and modern animations.</p>
+                <p>Flexbox, Grid & Animations.</p>
             </div>
-
-            <div class="card">
+            <div class="card tilt-card">
                 <i class="fab fa-js" style="color: #f7df1e;"></i>
                 <h3>JavaScript</h3>
-                <p>Interactivity, DOM manipulation, and dynamic web functionality.</p>
+                <p>DOM manipulation & ES6+.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="hidden">
+        <h2 class="section-title">Featured Projects</h2>
+        <div class="projects-container">
+            
+            <div class="project-card tilt-card">
+                <div class="project-image">
+                    <img src="Ecommerce.jpg" alt="Internship Project Preview">
+                    <div class="overlay">
+                        <a href="https://sonuk299.github.io/internship_3rd_sem/" target="_blank" class="btn primary">
+                            <i class="fas fa-external-link-alt"></i> Live Demo
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="project-content">
+                    <h3>Responsive Web Suite</h3>
+                    <p class="project-desc">
+                        A comprehensive web interface developed during my internship. Features a fully responsive layout, interactive navigation, and clean UI/UX principles designed for modern browsers.
+                    </p>
+                    <div class="tech-stack-mini">
+                        <span>HTML5</span>
+                        <span>CSS3</span>
+                        <span>JavaScript</span>
+                    </div>
+                    <div class="project-links-mobile">
+                        <a href="https://sonuk299.github.io/internship_3rd_sem/" target="_blank">View Live Site &rarr;</a>
+                    </div>
+                </div>
             </div>
 
         </div>
     </section>
 
     <section id="certifications" class="hidden">
-        <h2 class="section-title">Credentials & Certifications</h2>
+        <h2 class="section-title">Credentials</h2>
         <div class="cards-container">
-            
-            <div class="card cert-card">
+            <div class="card cert-card tilt-card">
                 <i class="fas fa-laptop-code" style="color: #00f260;"></i>
                 <h3>Web Dev Internship</h3>
                 <p class="issuer">ApexPlanet Software Pvt Ltd</p>
-                <p class="desc">Virtual internship specializing in modern web technologies: HTML, CSS, and JavaScript.</p>
                 <p class="date">Issued: Jun 2025</p>
             </div>
-
-            <div class="card cert-card">
+            <div class="card cert-card tilt-card">
                 <i class="fas fa-chart-line" style="color: var(--primary);"></i>
                 <h3>GenAI Data Analytics</h3>
                 <p class="issuer">Tata Group (Forage)</p>
-                <p class="desc">Completed practical simulation involving exploratory data analysis and predictive strategies.</p>
                 <p class="date">Issued: Sep 2025</p>
             </div>
-
-            <div class="card cert-card">
+            <div class="card cert-card tilt-card">
                 <i class="fab fa-cuttlefish" style="color: var(--secondary);"></i>
-                <h3>Python Essentials 1 & 2</h3>
-                [cite_start]<p class="issuer">Cisco Networking Academy [cite: 1, 2, 24, 25]</p>
-                <p class="desc">Verified expertise in algorithmic thinking, software design, and resolving implementation challenges.</p>
+                <h3>Python Essentials</h3>
+                <p class="issuer">Cisco Networking Academy</p>
                 <p class="date">Issued: Dec 2025</p>
             </div>
-
-            <div class="card cert-card">
+            <div class="card cert-card tilt-card">
                 <i class="fas fa-robot" style="color: #ff0055;"></i>
                 <h3>Introduction to AI</h3>
                 <p class="issuer">Infosys Springboard</p>
-                <p class="desc">Comprehensive course covering the fundamental concepts and future applications of technology.</p>
                 <p class="date">Issued: Oct 2025</p>
             </div>
-
         </div>
     </section>
 
     <section id="experience" class="hidden">
-        <h2 class="section-title">Professional Journey</h2>
+        <h2 class="section-title">Experience</h2>
         <div class="timeline">
             <div class="timeline-item right">
-                <div class="timeline-content">
+                <div class="timeline-content tilt-card">
                     <div class="date">May 2025 - June 2025</div>
                     <h3>Student Intern</h3>
                     <h4>ApexPlanet Software</h4>
-                    <p>Contributed to live software development cycles, mastering modern development workflows and collaborative coding.</p>
+                    <p>Contributed to live software development cycles and mastered modern development workflows.</p>
                 </div>
             </div>
         </div>
@@ -131,8 +150,8 @@
 
     <section id="contact" class="hidden">
         <h2 class="section-title">Let's Collaborate</h2>
-        <div class="contact-container">
-            <p>I am available for freelance web development projects and full-time roles. Let's build something amazing together.</p>
+        <div class="contact-container tilt-card">
+            <p>I am available for freelance web development projects and full-time roles.</p>
             
             <div class="email-box">
                 sonukr4457@gmail.com
@@ -141,8 +160,7 @@
             <div class="contact-links">
                 <a href="mailto:sonukr4457@gmail.com" class="social-icon"><i class="fas fa-envelope"></i></a>
                 <a href="https://www.linkedin.com/in/sonu-kumar-80384329b" target="_blank" class="social-icon"><i class="fab fa-linkedin"></i></a>
-                <a href="https://github.com/sonuk299" class="social-icon"><i class="fab fa-github"></i></a>
-                
+                <a href="https://github.com/sonuk299" target="_blank" class="social-icon"><i class="fab fa-github"></i></a>
             </div>
         </div>
     </section>
@@ -153,5 +171,4 @@
 
     <script src="script.js"></script>
 </body>
-
 </html>
